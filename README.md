@@ -19,6 +19,13 @@ As a **pure JS developer** I could not stand in front of such "*monstrosity*" ..
 At that time I have been trying to understand why developers were so excited about it and I could not came out with a proper answer except: "*ooooh come on, all this fuss just for some sugar?* ... *I don't even like coffee with sugar!*"
 
 
+About The Name
+--------------
+You can check the library by yourself and realize I have used all worst possible practices in order to simulate a different syntax within the one allowed by JavaScript.
+Such *pile of shit* **I wrote** to mimic an excellent project as CoffeeScript is could not have a better name, imo.
+
+
+
 Aim
 ---
 
