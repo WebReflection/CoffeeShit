@@ -12,7 +12,7 @@ About
 Every cult movie has one or more parodies ... well, every cult technology as well (or at least it should)!
 
 When I have first read about [CoffeeScript](http://jashkenas.github.com/coffee-script/) I was extremely sceptic.
-As a **pure JS developer** I could not stand in front of such "*mostruisity*" ... my favorite programming language denatured like that? *No fucking way!*
+As a **pure JS developer** I could not stand in front of such "*monstrosity*" ... my favorite programming language denatured like that? *No fucking way!*
 
 At that time I have been trying to understand why developers were so excited about it and I could not came out with a proper answer except: "*ooooh come on, all this fuss just for some sugar?* ... *I don't even like coffee with sugar!*"
 
