@@ -28,6 +28,101 @@ To see how it works, launch *testShit.html* file and check out the source code.
 It's just a "*stupid monster*" that's imitating CofeeScript possibilities and mainly/only as shown in the example page.
 
 
+Examples
+--------
+
+How to create a function
+
+    // CoffeeScript
+    square = (x) -> x * x
+    
+    // CofeeShit
+    square = 'x'['->']('x * x')
+
+
+How to fill strings via function
+
+    // CoffeeScript
+    fill = (container, liquid = "coffee") -> "Filling the #{container} with #{liquid}..."
+    
+    // CofeeShit
+    fill = ['container', 'liquid = "coffee"']['->']('Filling the #{container} with #{liquid}...')
+
+
+How to use *if* and others
+
+    // CofeeScript
+    mood = greatlyImproved if singing
+    
+    if happy and knowsIt
+        clapsHands()
+        chaChaCha()
+    else
+        showIt()
+    
+    date = if friday then sue else jill
+    
+    
+    // CoffeeShit
+    mood = greatlyImproved.if(singing)
+    
+    $.if(happy).and(knowsIt)([
+        'clapsHands()',
+        'chaChaCha()'
+    ]).else([
+        'showIt()'
+    ])
+    
+    date = $.if(friday).then(sue).else(jill)
+
+
+How to loop through an array
+
+    // CoffeeScript
+    eat food for food in ['toast', 'cheese', 'wine']
+    
+    // CoffeeShit
+    'eat(food)'.for('food').in(['toast', 'cheese', 'wine'])
+
+
+Operators and Aliases
+
+    // CoffeeScript
+    ignition is on
+    
+    volume = 10 if band isnt SpinalTap
+    
+    winner = yes if pick in [47, 92, 13]
+    
+    
+    // CoffeeShit
+    ignition.is(on)
+    
+    volume = (10).if(band.isnt(SpinalTap))
+    
+    winner = yes.if(pick.in([47, 92, 13]))
+
+
+The Existential Operator
+
+    // CoffeeScript
+    window ?
+    
+    notdefined ?
+    
+    speed ?= 75
+    
+    
+    // CoffeeShit
+    'window'['?']
+    
+    'notdefined'['?']
+    
+    'speed'['?='](75)
+
+More inside the testShit.html file
+
+
 Lesson
 ------
 
