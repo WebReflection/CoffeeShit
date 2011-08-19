@@ -4,6 +4,7 @@ The CoffeeScript "code parody"
 This silly project does not want to offend the CoffeeScript creator neither any CoffeeScript user, hoping both have sense of humor :{D
 
 ![da logo](http://fuckn.es/s/coffeeshit.png)
+
 *... because script happens!*
 
 
