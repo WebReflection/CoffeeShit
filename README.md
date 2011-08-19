@@ -137,7 +137,7 @@ License
 
 The CoffeeShit logo, the chaotic crazy script, and the rest of the project is under Mit Style License
 
-    Copyright (C) <year> by <copyright holders>
+    Copyright (C) 2011 by Andrea Giammarchi, @WebReflection
         
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
