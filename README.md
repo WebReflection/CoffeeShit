@@ -3,6 +3,8 @@ The CoffeeScript "code parody"
 
 This silly project does not want to offend the CoffeeScript creator neither any CoffeeScript user
 
+![da logo](http://fuckn.es/s/coffeeshit.png)
+
 
 About
 -----
