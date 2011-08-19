@@ -4,6 +4,7 @@ The CoffeeScript "code parody"
 This silly project does not want to offend the CoffeeScript creator neither any CoffeeScript user, hoping both have sense of humor :{D
 
 ![da logo](http://fuckn.es/s/coffeeshit.png)
+*... because script happens!*
 
 
 About
@@ -21,7 +22,7 @@ Aim
 ---
 
 **None**, except demonstrate how evil could be the *JavaScript* nature. This script was standing in some folder I forgot existed.
-Today I have accidentally found again this funny code and since I was laughing by myself like an idiot I decided to let other developers have a lough too.
+Today I have accidentally found again this funny code and since I was laughing by myself like an idiot I decided to let other developers have a laugh too.
 To see how it works, launch *testShit.html* file and check out the source code.
 
 **Do not** use *CoffeeShit* in any production environment!
