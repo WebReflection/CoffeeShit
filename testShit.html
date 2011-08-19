@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CoffeeShit Unit Tests</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <style type="text/css">
+        /* a bit of style is never that bad */
+
+        /* container, it can be the body */
+        a, #results {
+            font-family: sans-serif;
+            font-size: 11pt;
+        }
+
+        /* results, they are all divs */
+        #results div {
+            padding: 8px;
+            margin-bottom: 12px;
+        }
+
+        /* an error inside a method, just in case */
+        #results .error {
+            background: white;
+            color: black;
+        }
+
+        /* a wru.assert(false) */
+        #results .fail {
+            background: red;
+            color: white;
+        }
+
+        /* a wru.assert(true) */
+        #results .pass {
+            background: darkgreen;
+            color: white;
+        }
+        
+        #results .pass strong {
+            font-weight: normal;
+        }
+        
+        body {
+            background: #000;
+        }
+        </style>
+    </head>
+    <body><div id="results"></div></body>
+    <script src="wru.min.js"></script>
+    <script src="CoffeeShit.min.js"></script>
+    <script>
+    this.onload = function () {
+        
+        /*! CoffeeShit, the "code parody" unit test by WebReflection
+         * http://github.com/WebReflection/CoffeeShit
+         */
+        
+        // this test demonstrates *only* that
+        // few examples from CoffeeScript page are working in CoffeeShit
+        // wru.random = true;
+        wru.node = document.getElementById("results");
+        wru.test([{
+            name: "square = (x) -> x * x",
+            test: function () {
+                
+                square = 'x'['->']('x * x')
+                
+                wru.assert("square is a function", typeof square == "function");
+                wru.assert("and returns the square of a number", square(3) === 9);
+            }
+        }, {
+            name: "cube = (x) -> square(x) * x",
+            test: function () {
+                
+                // necessary if wru.random ==true
+                // square = 'x'['->']('x * x')
+                
+                cube = 'x'['->']('square(x) * x')
+                
+                wru.assert("cube is a function", typeof cube == "function");
+                wru.assert("and returns the cube of a number", cube(3) === 27);
+                
+            }
+        }, {
+            name: 'fill = (container, liquid = "coffee") -> "Filling the #{container} with #{liquid}..."',
+            test: function () {
+                
+                fill = ['container', 'liquid = "coffee"']['->']('Filling the #{container} with #{liquid}...')
+                
+                wru.assert("fill is a function", typeof fill == "function");
+                wru.assert("default value is respected", fill("cup") === "Filling the cup with coffee...");
+                wru.assert("default value can be changed", fill("cup", "shit") === "Filling the cup with shit...");
+                
+            }
+        }, {
+            name: "outer = 1<br />changeNumbers = -><br />&nbsp;&nbsp;&nbsp;inner = -1<br />&nbsp;&nbsp;&nbsp;outer = 10<br />inner = changeNumbers()",
+            test: function () {// btw, I think this example was wrong ...
+                
+                outer = 1
+                changeNumbers = $['->']([
+                    'inner = -1',
+                    'outer = 10'
+                ])
+                
+                wru.assert("outer is 1", outer === 1);
+                
+                inner = changeNumbers()
+                
+                wru.assert("inner is outer", outer === inner);
+            }
+        }, {
+            name: "mood = greatlyImproved if singing",
+            setup: function () {
+                
+                greatlyImproved = {}
+                
+            },
+            test: function () {
+                
+                singing = true
+                
+                mood = greatlyImproved.if(singing)
+                
+                wru.assert("mood is greatlyImproved", mood === greatlyImproved);
+                
+                singing = false
+                
+                mood = greatlyImproved.if(singing)
+                
+                wru.assert("mood is not greatlyImproved", mood !== greatlyImproved);
+                
+            }
+        }, {
+            name: "if happy and knowsIt<br />&nbsp;&nbsp;&nbsp;clapsHands()<br />&nbsp;&nbsp;&nbsp;chaChaCha()<br />else<br />&nbsp;&nbsp;&nbsp;showIt()",
+            setup: function () {
+                
+                invoked = ""
+                
+                clapsHands = $['->']('invoked += "hand clapped"')
+                chaChaCha = $['->']('invoked += "cha cha cha"')
+                showIt = $['->']('invoked += "shake that"')
+                
+            },
+            test: function () {
+                
+                happy = true
+                knowsIt = true
+                
+                $.if(happy).and(knowsIt)([
+                    'clapsHands()',
+                    'chaChaCha()'
+                ]).else([
+                    'showIt()'
+                ])
+                
+                wru.assert("clapsHands and chaChaCha", invoked === "hand clappedcha cha cha");
+                invoked = ""
+                
+                happy = false
+                knowsIt = true
+                
+                $.if(happy).and(knowsIt)([
+                    'clapsHands()',
+                    'chaChaCha()'
+                ]).else([
+                    'showIt()'
+                ])
+                
+                wru.assert("showIt", invoked === "shake that");
+                invoked = ""
+                
+                happy = true
+                knowsIt = false
+                
+                $.if(happy).and(knowsIt)([
+                    'clapsHands()',
+                    'chaChaCha()'
+                ]).else([
+                    'showIt()'
+                ])
+                
+                wru.assert("showIt", invoked === "shake that");
+                invoked = ""
+                
+                happy = false
+                knowsIt = false
+                
+                $.if(happy).and(knowsIt)([
+                    'clapsHands()',
+                    'chaChaCha()'
+                ]).else([
+                    'showIt()'
+                ])
+                
+                wru.assert("showIt", invoked === "shake that");
+                invoked = ""
+                
+                happy = true
+                knowsIt = true
+                
+                $.if(happy).and(knowsIt)([
+                    'clapsHands()',
+                    'chaChaCha()'
+                ]).else([
+                    'showIt()'
+                ])
+                
+                wru.assert("clapsHands and chaChaCha again", invoked === "hand clappedcha cha cha");
+                
+            }
+        }, {
+            name: "date = if friday then sue else jill",
+            setup: function () {
+                
+                sue = "sue"
+                jill = "jill"
+                
+            },
+            test: function () {
+                
+                // it's friday, friday, gonna get date on friday
+                friday = true
+                
+                date = $.if(friday).then(sue).else(jill)
+                
+                wru.assert("date with sue", date === sue);
+                
+                
+                // no more fun, fun, fun, you know what I mean
+                friday = false
+                
+                date = $.if(friday).then(sue).else(jill)
+                
+                wru.assert("date with sue", date === jill);
+                
+            }
+        }, {
+            name: "options or= defaults",
+            setup: function () {
+                defaults = 123;
+            },
+            test: function () {
+                
+                "options"['or='](defaults)
+                
+                wru.assert("options was not defined so it's defaults", options === defaults)
+                
+                defaults = 456;
+                
+                "options"['or='](defaults)
+                
+                wru.assert("options has been defined before so no defaults", options != defaults);
+                
+            }
+        }, {
+            name: 'gold = silver = rest = "unknown"<br /><br />awardMedals = (first, second, others...) -><br />&nbsp;&nbsp;&nbsp;gold   = first<br />&nbsp;&nbsp;&nbsp;silver = second<br />&nbsp;&nbsp;&nbsp;rest   = others<br /><br />contenders = [<br />&nbsp;&nbsp;&nbsp;"Michael Phelps"<br />&nbsp;&nbsp;&nbsp;"Liu Xiang"<br />&nbsp;&nbsp;&nbsp;"Yao Ming"<br />&nbsp;&nbsp;&nbsp;"Allyson Felix"<br />&nbsp;&nbsp;&nbsp;"Shawn Johnson"<br />&nbsp;&nbsp;&nbsp;"Roman Sebrle"<br />&nbsp;&nbsp;&nbsp;"Guo Jingjing"<br />&nbsp;&nbsp;&nbsp;"Tyson Gay"<br />&nbsp;&nbsp;&nbsp;"Asafa Powell"<br />&nbsp;&nbsp;&nbsp;"Usain Bolt"<br />]<br /><br />awardMedals contenders...<br /><br />alert "Gold: " + gold<br />alert "Silver: " + silver<br />alert "The Field: " + rest',
+            test: function () {
+                
+                gold = silver = rest = "unknown"
+                
+                awardMedals = ['first', 'second', 'others...']['->']([
+                    'gold   = first',
+                    'silver = second',
+                    'rest   = others',
+                ])
+                
+                contenders = [
+                    "Michael Phelps",
+                    "Liu Xiang",
+                    "Yao Ming",
+                    "Allyson Felix",
+                    "Shawn Johnson",
+                    "Roman Sebrle",
+                    "Guo Jingjing",
+                    "Tyson Gay",
+                    "Asafa Powell",
+                    "Usain Bolt"
+                ]
+                
+                awardMedals('contenders...')
+                
+                wru.assert("Gold: " + gold === "Gold: Michael Phelps")
+                wru.assert("Silver: " + silver === "Silver: Liu Xiang")
+                wru.assert("The Field: " + rest === "The Field: " + contenders.slice(2).join(","))
+                
+            }
+        }, {
+            name: "eat food for food in ['toast', 'cheese', 'wine']",
+            setup: function () {
+                
+                gulped = []
+                
+                eat = 'yummi'['->']('gulped.push(yummi)')
+                
+            },
+            test: function () {
+                
+                'eat(food)'.for('food').in(['toast', 'cheese', 'wine'])
+                
+                wru.assert("everything eaten", gulped.join(",") === ['toast', 'cheese', 'wine'].join(","))
+            }
+        }, {
+            name: "countdown = (num for num in [10..1])",
+            test: function () {
+                
+                countdown = 'num'.for('num').in('10..1'.asRange());
+                
+                wru.assert(countdown.join(",") === [10,9,8,7,6,5,4,3,2,1].join(","));
+                
+            }
+        }, {
+            name: "if this.studyingEconomics<br />&nbsp;&nbsp;&nbsp;buy()  while supply > demand<br />&nbsp;&nbsp;&nbsp;sell() until supply > demand",
+            setup: function () {
+                $this = {};
+                
+                buy = $['->']('supply--;')
+                sell = $['->']('supply++;')
+            },
+            test: function () {
+                
+                $this.studyingEconomics = true
+                
+                supply = 3
+                demand = 1
+                
+                $.if($this.studyingEconomics)([
+                    'buy.while("supply > demand")',
+                    'sell.until("supply > demand")'
+                ])
+                
+                wru.assert(supply === demand + 1);
+                
+                supply = 3
+                demand = 1
+                
+                buy.while('supply > demand')
+                
+                wru.assert(supply-- === demand);
+                
+                sell.until('supply > demand')
+                
+                wru.assert(supply === demand + 1);
+                
+            }
+        }, {
+            name: 'num = 6<br />lyrics = while num -= 1<br />&nbsp;&nbsp;&nbsp;"#{num} little monkeys, jumping on the bed.<br />&nbsp;&nbsp;&nbsp;One fell out and bumped his head."',
+            test: function () {
+                
+                num = 6
+                
+                lyrics = $.while('num -= 1',
+                    "#{num} little monkeys, jumping on the bed." +
+                    "One fell out and bumped his head."
+                )
+                
+                wru.assert(lyrics.join(":") === [
+                    "5 little monkeys, jumping on the bed.One fell out and bumped his head.",
+                    "4 little monkeys, jumping on the bed.One fell out and bumped his head.",
+                    "3 little monkeys, jumping on the bed.One fell out and bumped his head.",
+                    "2 little monkeys, jumping on the bed.One fell out and bumped his head.",
+                    "1 little monkeys, jumping on the bed.One fell out and bumped his head."
+                ].join(":"));
+                
+            }
+        }, {
+            name: "Operators and Aliases",
+            test: function () {
+                
+                ignition = true
+                
+                wru.assert(ignition.is(on) === true);
+                
+                
+                SpinalTap = {}
+                band = {}
+                
+                volume = (10).if(band.isnt(SpinalTap))
+                
+                wru.assert(volume === 10);
+                
+                
+                pick = 92
+                
+                winner = yes.if(pick.in([47, 92, 13]))
+                
+                wru.assert(winner === true);
+                
+            }
+        }, {
+            name: "The Existential Operator",
+            test: function () {
+                if ("?" in String.prototype) {
+                    wru.assert(
+                    
+                        'window'['?']
+                    
+                         === true
+                    );
+                    wru.assert(
+                        
+                        'shouldntbedefined'['?']
+                    
+                         === false
+                    );
+                    
+                    'speed'['?='](75);
+                    
+                    wru.assert(speed === 75);
+                    
+                    'speed'['?='](130);
+                    
+                    wru.assert(speed === 75);
+                    
+                }
+            }
+        }]);
+    };
+    </script>
+</html>
