@@ -1,7 +1,7 @@
 !function (window, Object_prototype, String_prototype) {
     
     /*! CoffeeShit, the "code parody" by WebReflection - NoWay Style License
-     * http://github.com/WebReflection/CoffeeShit
+     * https://github.com/WebReflection/CoffeeShit
      */
     
     function execIfFunction(value) {
