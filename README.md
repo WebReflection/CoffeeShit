@@ -126,4 +126,7 @@ More inside the testShit.html file
 Lesson
 ------
 
-JavaScript may be fun and this is an example. *CoffeeScript* ? ... surely one of the most interesting projects JS related I know, together with [haxe](http://haxe.org/) ;-)
+There are limits over syntax sugar good raw JavaScript cannot break. The usage of *eval* is massive and the replicated syntax too weak, slow, and messed up.
+In any case JavaScript may be fun and this was just an example.
+
+*CoffeeScript* ? ... surely one of the most interesting projects JS related I know, together with [haxe](http://haxe.org/) ;-)
