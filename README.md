@@ -3,7 +3,7 @@ The CoffeeScript "code parody"
 
 This silly project does not want to offend the CoffeeScript creator neither any CoffeeScript user, hoping both have sense of humor :{D
 
-![da logo](http://fuckn.es/s/coffeeshit.png)
+![da logo](http://www.3site.eu/coffeeshit.png)
 
         ... because script happens!
 
@@ -44,7 +44,7 @@ How to create a function
 
     // CoffeeScript
     square = (x) -> x * x
-    
+
     // CofeeShit
     square = 'x'['->']('x * x')
 
@@ -53,7 +53,7 @@ How to fill strings via function
 
     // CoffeeScript
     fill = (container, liquid = "coffee") -> "Filling the #{container} with #{liquid}..."
-    
+
     // CofeeShit
     fill = ['container', 'liquid = "coffee"']['->']('Filling the #{container} with #{liquid}...')
 
@@ -62,26 +62,26 @@ How to use *if* and others
 
     // CofeeScript
     mood = greatlyImproved if singing
-    
+
     if happy and knowsIt
         clapsHands()
         chaChaCha()
     else
         showIt()
-    
+
     date = if friday then sue else jill
-    
-    
+
+
     // CoffeeShit
     mood = greatlyImproved.if(singing)
-    
+
     $.if(happy).and(knowsIt)([
         'clapsHands()',
         'chaChaCha()'
     ]).else([
         'showIt()'
     ])
-    
+
     date = $.if(friday).then(sue).else(jill)
 
 
@@ -89,7 +89,7 @@ How to loop through an array
 
     // CoffeeScript
     eat food for food in ['toast', 'cheese', 'wine']
-    
+
     // CoffeeShit
     'eat(food)'.for('food').in(['toast', 'cheese', 'wine'])
 
@@ -98,17 +98,17 @@ Operators and Aliases
 
     // CoffeeScript
     ignition is on
-    
+
     volume = 10 if band isnt SpinalTap
-    
+
     winner = yes if pick in [47, 92, 13]
-    
-    
+
+
     // CoffeeShit
     ignition.is(on)
-    
+
     volume = (10).if(band.isnt(SpinalTap))
-    
+
     winner = yes.if(pick.in([47, 92, 13]))
 
 
@@ -116,17 +116,17 @@ The Existential Operator
 
     // CoffeeScript
     window ?
-    
+
     notdefined ?
-    
+
     speed ?= 75
-    
-    
+
+
     // CoffeeShit
     'window'['?']
-    
+
     'notdefined'['?']
-    
+
     'speed'['?='](75)
 
 More inside the testShit.html file
@@ -147,17 +147,17 @@ License
 The CoffeeShit logo, the chaotic crazy script, and the rest of the project is under Mit Style License
 
     Copyright (C) 2011 by Andrea Giammarchi, @WebReflection
-        
+
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
     in the Software without restriction, including without limitation the rights
     to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
     copies of the Software, and to permit persons to whom the Software is
     furnished to do so, subject to the following conditions:
-    
+
     The above copyright notice and this permission notice shall be included in
     all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
     IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
     FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
